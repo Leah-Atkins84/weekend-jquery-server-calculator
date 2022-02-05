@@ -8,24 +8,24 @@ function readyNow() {
     $('#multiply-button').on('click', multiplyFunction);
     $('#divide-button').on('click', divideFunction);
     $('#equals-button').on('click', equalsFunction);
-    $('#clear-button').on('click', clearFunction);
+    //$('#clear-button').on('click', clearFunction);
 
 }; // end readyNow
+
 let symbol;
 //------- Assign the operator ----------
 function plusFunction(){
     symbol= '+';
-}
-
+};
 function minusFunction() {
     symbol= '-';
-}
+};
 function multiplyFunction() {
     symbol= '*';
-}
+};
 function divideFunction() {
-    
-}
+    symbol= '/';
+};
 //------- End operator assignment ----------
 
 
@@ -36,7 +36,7 @@ function equalsFunction() {
         method: 'POST', // type of request
         url: '/calculator-inputs', // route we will match on
         data: { // must be an object
-            mathProblem = {
+            mathProblem : {
                 valueOne: $('#number1').val(),
                 valueTwo: $('#number2').val(),
                 operator: symbol
@@ -56,7 +56,7 @@ function equalsFunction() {
 // --------------Gets from server----------------
 function name(params) {
     
-}
+
 $.ajax({
     method: 'GET',
     url: '/quotes'
@@ -67,19 +67,13 @@ $.ajax({
   }).catch(function(response) {
     console.log('OPE no luck', response);
   })
+}
 
 // Function to post
-    //ajax request
-        //If it got a response
-            // Trigger a function that sends a get request
-        //if it didn't
+//     //ajax request
+//         //If it got a response
+//             // Trigger a function that sends a get request
+//         //if it didn't
 
 // function to GET 
-    //ajax request
-
-
-
-
-function inputGrabber() {
-    
-}
+//     //ajax request

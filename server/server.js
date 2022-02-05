@@ -27,11 +27,25 @@ app.get('/calculator', function(req, res){
 app.post ("/calculator-inputs", function(req, res){
     /* we want to see what the client sent to the server */
     console.log(req.body);
-
-
+    console.log(req.body.mathProblem);
+   
     res.sendStatus(200);
 })
 
+function mathOutputs() {
+    console.log('in mathOutputs');
+    let additionOutputs= valueOne + valueTwo;
+}
+
+
+
+
+
+
+
+
+
+// ------- End of page ---------------------------
 /* start up our server */
 app.listen(port, function () {
     console.log('listening to port', port);
