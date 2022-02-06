@@ -8,7 +8,7 @@ function readyNow() {
     $('#multiply-button').on('click', multiplyFunction);
     $('#divide-button').on('click', divideFunction);
     $('#equals-button').on('click', equalsFunction);
-    //$('#clear-button').on('click', clearFunction);
+    $('#clear-button').on('click', clearFunction);
 
 }; // end readyNow
 
@@ -72,6 +72,7 @@ $.ajax({
 
 function renderToDom(mathArray) {
     $('#math-list').empty();
+    $('#last-answer').empty();
      for (let answers of mathArray){
         // console.log(mathArray[0]);
         // console.log(mathArray.answer);
@@ -84,7 +85,18 @@ function renderToDom(mathArray) {
                     ${answers.answer} 
                     </li>`);
    }
+  
+   $('#last-answer').append(`<h3> ${mathArray[mathArray.length-1].answer}
+   </h3>`);
+   //console.log(mathArray[mathArray.length-1].answer);
+  
 }
+
+function clearFunction() {
+    
+    
+}
+
 
 // Function to post
 //     //ajax request
