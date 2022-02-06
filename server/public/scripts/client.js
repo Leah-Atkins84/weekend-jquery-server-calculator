@@ -8,7 +8,7 @@ function readyNow() {
     $('#multiply-button').on('click', multiplyFunction);
     $('#divide-button').on('click', divideFunction);
     $('#equals-button').on('click', equalsFunction);
-    $('#clear-button').on('click', clearFunction);
+    //$('#clear-button').on('click', clearInputs);
     getValues();
 
 }; // end readyNow
@@ -61,7 +61,7 @@ $.ajax({
     url: '/mathAnswers'
   }).then(function(response) {
     console.log('Great success!', response);
-    // TODO append math to DOM?
+    // TODO append math to DOM
     renderToDom(response);
   }).catch(function(response) {
     console.log('OPE no luck', response);
@@ -86,10 +86,12 @@ function renderToDom(mathArray) {
   
 }
 
-function clearFunction() {
-
-    
-}
+// function clearInputs() {
+//    console.log('inputs cleared');
+//    $('#numberOne').val('');
+//    $('#numberTwo').val(''); 
+   
+// }
 
 
 // Function to post

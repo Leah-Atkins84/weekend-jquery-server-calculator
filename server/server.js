@@ -60,7 +60,7 @@ function mathOutputs(object) {
     allAnswers.push(mathObjects);
 console.log(allAnswers);
 };
-//----------------Gets to client-------
+
   
     
 
