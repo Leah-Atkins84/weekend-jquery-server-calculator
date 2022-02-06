@@ -24,7 +24,7 @@ app.get('/mathAnswers', function(req, res){
 
 
 /* req is what the client sent to the server */
-app.post ("/calculator-inputs", function(req, res){
+app.post ('/calculator-inputs', function(req, res){
     /* we want to see what the client sent to the server */
     //console.log(req.body);
     console.log(req.body.mathProblem);
@@ -54,7 +54,7 @@ function mathOutputs(object) {
         answer: total,
         valueOne: valueOne,
         valueTwo: valueTwo,
-        operator: object.operator,
+        operator: object.operator
        
     }
     allAnswers.push(mathObjects);

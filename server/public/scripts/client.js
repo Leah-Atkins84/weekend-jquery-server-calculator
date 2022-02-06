@@ -8,7 +8,7 @@ function readyNow() {
     $('#multiply-button').on('click', multiplyFunction);
     $('#divide-button').on('click', divideFunction);
     $('#equals-button').on('click', equalsFunction);
-    //$('#clear-button').on('click', clearInputs);
+    $('#clear-button').on('click', clearInputs);
     getValues();
 
 }; // end readyNow
@@ -81,17 +81,17 @@ function renderToDom(mathArray) {
                     </li>`);
    }
    $('#last-answer').append(`<h3> ${mathArray[mathArray.length-1].answer}
-   </h3>`);
+   </h3>`);// keep last math calc answer on dom at the top of the list
 
   
 }
 
-// function clearInputs() {
-//    console.log('inputs cleared');
-//    $('#numberOne').val('');
-//    $('#numberTwo').val(''); 
+function clearInputs() {
+   console.log('inputs cleared');
+   $('#numberOne').val('');
+   $('#numberTwo').val(''); 
    
-// }
+}
 
 
 // Function to post
