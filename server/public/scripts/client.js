@@ -46,7 +46,7 @@ function equalsFunction() {
     }).then(function(response) {
         console.log('Client received confirmation from server');
         // Code in here gets run when this gets a response from the server
-
+        getValues();
     }).catch(function(response) {
         console.log('Client has\'nt heard back from the server');
         //code in here gets run if client doesn't get a response
@@ -54,19 +54,36 @@ function equalsFunction() {
 }
 //-------------- End posts to server-------------
 // --------------Gets from server----------------
-function name(params) {
+function getValues() {
     
 
+    
 $.ajax({
     method: 'GET',
-    url: '/quotes'
+    url: '/mathAnswers'
   }).then(function(response) {
     console.log('Great success!', response);
-    // TODO append quotes to DOM
+    // TODO append math to DOM?
     renderToDom(response);
   }).catch(function(response) {
     console.log('OPE no luck', response);
   })
+}
+
+function renderToDom(mathArray) {
+    $('#math-list').empty();
+     for (let answers of mathArray){
+        // console.log(mathArray[0]);
+        // console.log(mathArray.answer);
+        // console.log(mathArray[0].answer);
+       
+        $('#math-list').append(`<li>
+                    ${answers.valueOne} 
+                    ${answers.operator} 
+                    ${answers.valueTwo}=
+                    ${answers.answer} 
+                    </li>`);
+   }
 }
 
 // Function to post

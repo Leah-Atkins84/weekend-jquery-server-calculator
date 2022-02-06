@@ -13,12 +13,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("server/public"));
 
 /* GET & POST Routes go here*/
-app.get('/calculator', function(req, res){
+app.get('/mathAnswers', function(req, res){
     console.log('request at /calculator was made', req);
 
 
-    res.sendStatus(200);
-    res.send(whateverobjectthatYouCalculated)
+    //res.sendStatus(200);
+    res.send(allAnswers);
 })
 
 
@@ -26,38 +26,46 @@ app.get('/calculator', function(req, res){
 /* req is what the client sent to the server */
 app.post ("/calculator-inputs", function(req, res){
     /* we want to see what the client sent to the server */
-    console.log(req.body);
+    //console.log(req.body);
     console.log(req.body.mathProblem);
-   mathOutputs(req.body.mathProblem)
+    mathOutputs(req.body.mathProblem)
     res.sendStatus(200);
 })
 let allAnswers= [];
 function mathOutputs(object) {
     console.log('in mathOutputs');
+    let valueOne = Number(object.valueOne);
+    let valueTwo= Number(object.valueTwo);
     
     if (object.operator === '+' ){
-        total = object.valueOne + object.valueTwo ;
+        total = valueOne + valueTwo ;
     };
     if (object.operator === '-' ){
-        total = object.valueOne - object.valueTwo;
+        total = valueOne - valueTwo;
     };
     if (object.operator === '*' ){
-        total = object.valueOne * object.valueTwo;
+        total = valueOne * valueTwo;
     };
     if (object.operator === '/' ){
-        total = object.valueOne / object.valueTwo;
+        total = valueOne / valueTwo;
     };
     
     mathObjects = {
         answer: total,
-        valueOne: object.valueOne,
-        valueTwo: object.valueTwo,
+        valueOne: valueOne,
+        valueTwo: valueTwo,
         operator: object.operator,
        
     }
     allAnswers.push(mathObjects);
-
+console.log(allAnswers);
 };
+//----------------Gets to client-------
+  
+    
+
+    
+
 
 
 
