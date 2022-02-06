@@ -28,14 +28,39 @@ app.post ("/calculator-inputs", function(req, res){
     /* we want to see what the client sent to the server */
     console.log(req.body);
     console.log(req.body.mathProblem);
-   
+   mathOutputs(req.body.mathProblem)
     res.sendStatus(200);
 })
-
-function mathOutputs() {
+let allAnswers= [];
+function mathOutputs(object) {
     console.log('in mathOutputs');
-    let additionOutputs= valueOne + valueTwo;
-}
+    
+    if (object.operator === '+' ){
+        total = object.valueOne + object.valueTwo ;
+    };
+    if (object.operator === '-' ){
+        total = object.valueOne - object.valueTwo;
+    };
+    if (object.operator === '*' ){
+        total = object.valueOne * object.valueTwo;
+    };
+    if (object.operator === '/' ){
+        total = object.valueOne / object.valueTwo;
+    };
+    
+    mathObjects = {
+        answer: total,
+        valueOne: object.valueOne,
+        valueTwo: object.valueTwo,
+        operator: object.operator,
+       
+    }
+    allAnswers.push(mathObjects);
+
+};
+
+
+
 
 
 
