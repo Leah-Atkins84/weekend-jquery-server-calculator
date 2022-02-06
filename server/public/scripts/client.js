@@ -9,6 +9,7 @@ function readyNow() {
     $('#divide-button').on('click', divideFunction);
     $('#equals-button').on('click', equalsFunction);
     $('#clear-button').on('click', clearFunction);
+    getValues();
 
 }; // end readyNow
 
@@ -55,9 +56,6 @@ function equalsFunction() {
 //-------------- End posts to server-------------
 // --------------Gets from server----------------
 function getValues() {
-    
-
-    
 $.ajax({
     method: 'GET',
     url: '/mathAnswers'
@@ -74,26 +72,22 @@ function renderToDom(mathArray) {
     $('#math-list').empty();
     $('#last-answer').empty();
      for (let answers of mathArray){
-        // console.log(mathArray[0]);
-        // console.log(mathArray.answer);
-        // console.log(mathArray[0].answer);
-       
+     
         $('#math-list').append(`<li>
                     ${answers.valueOne} 
                     ${answers.operator} 
-                    ${answers.valueTwo}=
+                    ${answers.valueTwo} =
                     ${answers.answer} 
                     </li>`);
    }
-  
    $('#last-answer').append(`<h3> ${mathArray[mathArray.length-1].answer}
    </h3>`);
-   //console.log(mathArray[mathArray.length-1].answer);
+
   
 }
 
 function clearFunction() {
-    
+
     
 }
 
