@@ -48,10 +48,12 @@ function equalsFunction() {
         console.log('Client received confirmation from server');
         // Code in here gets run when this gets a response from the server
         getValues();
+       
     }).catch(function(response) {
         console.log('Client has\'nt heard back from the server');
         //code in here gets run if client doesn't get a response
     })
+   
 }
 //-------------- End posts to server-------------
 // --------------Gets from server----------------
@@ -88,8 +90,8 @@ function renderToDom(mathArray) {
 
 function clearInputs() {
    console.log('inputs cleared');
-   $('#numberOne').val('');
-   $('#numberTwo').val(''); 
+   $('#number1').val('');
+   $('#number2').val(''); 
    
 }
 
